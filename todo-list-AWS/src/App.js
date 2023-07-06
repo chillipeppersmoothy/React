@@ -1,0 +1,49 @@
+import './App.css';
+import Header from './Components/Header';
+import Form from './Components/Form';
+import { useState, useEffect } from 'react';
+import TodoList from './Components/TodoList';
+import axios from 'axios'
+
+const App = () => {
+
+  const [input, setInput] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [editTodo, setEditTodo] = useState(null);
+  
+  useEffect(() => {
+    axios.get('https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items')
+    .then((Response) => {
+      console.log(Response.data.Items)
+      setTodos(Response.data.Items);
+    })
+  }, [setTodos])
+
+  return (
+    <div className="container">
+      <header className="app-wrapper">
+        <div>
+          <Header />
+        </div>
+        <div>
+          <Form 
+            input = {input}
+            setInput = {setInput}
+            todos = {todos}
+            setTodos = {setTodos}
+            editTodo = {editTodo}
+            setEditTodo = {setEditTodo}
+          />
+        </div>
+        <div>
+          <TodoList 
+            todos={todos} 
+            setTodos={setTodos} 
+            setEditTodo={setEditTodo} />
+        </div>
+      </header>
+    </div>
+  );
+}
+
+export default App;

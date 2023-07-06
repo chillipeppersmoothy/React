@@ -1,0 +1,22 @@
+.blogdiv {
+    margin: 16px;
+    padding: 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #ccc;
+    box-sizing: border-box;
+    width: 80%;
+    height: auto;
+  }
+
+  /* for mobile view or flexibilty of screen */
+  @media (min-width: 992px) {
+    .blogdiv {
+      width:50%;
+    }
+  }
+
+  .btnClass {
+    width: 10%;
+    cursor: pointer;
+    height: 3vh;
+  }

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import TodoList from './Components/TodoList';
 import axios from 'axios';
 
-const URL = 'https://sf0xguv28e.execute-api.us-east-1.amazonaws.com/dev/items';
+const URL = 'https://la4vqwil72.execute-api.us-east-1.amazonaws.com/dev/items';
 
 const App = () => {
 

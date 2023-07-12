@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
+const URL = 'https://sf0xguv28e.execute-api.us-east-1.amazonaws.com/dev/items';
+
 function Form({input, setInput, todos, setTodos, editTodo, setEditTodo}) {
 
   const onInputChange = (event) => {
@@ -10,12 +12,12 @@ function Form({input, setInput, todos, setTodos, editTodo, setEditTodo}) {
 
   const updateTodo = (title, id, completed) => {
 
-    axios.put('https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items', 
+    axios.put(URL, 
     {
       id: id, title: title, completed: completed
     }).then((Response) => {
       console.log(Response);
-      axios.get('https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items')
+      axios.get(URL)
       .then((Response) => {
         console.log(Response.data.Items)
         setTodos(Response.data.Items);
@@ -36,12 +38,12 @@ function Form({input, setInput, todos, setTodos, editTodo, setEditTodo}) {
   const onFormSubmit = (event) => {
     event.preventDefault();
     if(!editTodo) {    
-      axios.put('https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items', 
+      axios.put(URL, 
       {
         id: uuidv4(), title: input, completed: false
       }).then((Response) => {
         console.log(Response);
-        axios.get('https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items')
+        axios.get(URL)
         .then((Response) => {
           console.log(Response.data.Items)
           setTodos(Response.data.Items);

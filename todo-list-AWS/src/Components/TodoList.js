@@ -2,13 +2,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
+const URL = 'https://sf0xguv28e.execute-api.us-east-1.amazonaws.com/dev/items';
+
 const TodoList = ({todos, setTodos, setEditTodo }) => {
 
   const handleDelete = ({id}) => {
-    axios.delete(`https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items/${id}`)
+    axios.delete(`URL/${id}`)
     .then((Response) => {
       console.log(Response.data);
-        axios.get('https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items')
+        axios.get(URL)
         .then((Response) => {
           console.log(Response.data.Items)
           setTodos(Response.data.Items);
@@ -17,12 +19,12 @@ const TodoList = ({todos, setTodos, setEditTodo }) => {
   }
 
   const handleComplete = (item) => {
-        axios.put('https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items', 
+        axios.put(URL, 
         {
           id: item.id, title: item.title, completed: true
         }).then((Response) => {
           console.log(Response);
-          axios.get('https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items')
+          axios.get(URL)
           .then((Response) => {
             console.log(Response.data.Items)
             setTodos(Response.data.Items);

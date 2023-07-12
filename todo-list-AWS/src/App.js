@@ -3,7 +3,9 @@ import Header from './Components/Header';
 import Form from './Components/Form';
 import { useState, useEffect } from 'react';
 import TodoList from './Components/TodoList';
-import axios from 'axios'
+import axios from 'axios';
+
+const URL = 'https://sf0xguv28e.execute-api.us-east-1.amazonaws.com/dev/items';
 
 const App = () => {
 
@@ -12,7 +14,7 @@ const App = () => {
   const [editTodo, setEditTodo] = useState(null);
   
   useEffect(() => {
-    axios.get('https://1ube5zl184.execute-api.us-east-1.amazonaws.com/dev/items')
+    axios.get(URL)
     .then((Response) => {
       console.log(Response.data.Items)
       setTodos(Response.data.Items);

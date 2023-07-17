@@ -2,12 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-const URL = 'https://vw8wztsy8d.execute-api.us-east-1.amazonaws.com/dev/items';
+const URL = 'https://aix5j07z0h.execute-api.us-east-1.amazonaws.com/dev/items';
 
 const TodoList = ({todos, setTodos, setEditTodo }) => {
 
   const handleDelete = ({id}) => {
-    axios.delete(`https://vw8wztsy8d.execute-api.us-east-1.amazonaws.com/dev/items/${id}`)
+    axios.delete(`https://aix5j07z0h.execute-api.us-east-1.amazonaws.com/dev/items/${id}`)
     .then((Response) => {
       console.log(Response.data);
         axios.get(URL)

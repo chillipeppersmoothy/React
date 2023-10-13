@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
-const URL = 'https://aix5j07z0h.execute-api.us-east-1.amazonaws.com/dev/items';
+const URL = 'https://usctwen5qc.execute-api.us-east-1.amazonaws.com/dev/items';
 
 function Form({input, setInput, todos, setTodos, editTodo, setEditTodo}) {
 

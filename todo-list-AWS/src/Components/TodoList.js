@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-const URL = 'https://usctwen5qc.execute-api.us-east-1.amazonaws.com/dev/items';
+const URL = 'https://ourzqzu1jh.execute-api.us-east-1.amazonaws.com/dev/items';
 
 const TodoList = ({todos, setTodos, setEditTodo }) => {
 
